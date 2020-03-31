@@ -7,7 +7,3 @@
 ### `webpack`
 ### `sass`
 ### `babel`
-### `etc.`
-
-
-In the project directory, you can run:
