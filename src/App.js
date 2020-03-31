@@ -64,36 +64,40 @@ class App extends React.Component {
 			})
 		}
 
+		// display overlay with info after loading:
+
+		// this is shitty man's code, figure this out: document.getElementById("weather-results").style.display = 'block';
+
 	}
 	
 
   render() {
     return(
       <div>
-				<div className="wrapper">
-					<div className="main">
-						<div className="container">
-							<div className="row">
-								<div className="col-4 title-container">
-										<Titles />
-									</div>
-								<div className="col-8 form-container">
-									<Form getWeather={this.getWeather} />
-								</div>
+		<div className="wrapper">
+			<div className="main">
+				<div className="container">
+					<div className="row">
+						<div className="col-4 title-container">
+								<Titles />
 							</div>
-							<div className="row">	
-								<Weather
-										temperature={this.state.temperature}
-										city={this.state.city}
-										country={this.state.country}
-										humidity={this.state.humidity}
-										description={this.state.description}
-										error={this.state.error}
-									/>
-							</div>
+						<div className="col-8 form-container">
+							<Form getWeather={this.getWeather} />
 						</div>
 					</div>
+					<div className="row">	
+						<Weather
+							temperature={this.state.temperature}
+							city={this.state.city}
+							country={this.state.country}
+							humidity={this.state.humidity}
+							description={this.state.description}
+							error={this.state.error}
+						/>
+					</div>
 				</div>
+			</div>
+		</div>
       </div>
     );
   }
