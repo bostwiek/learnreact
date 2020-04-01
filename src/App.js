@@ -2,6 +2,7 @@ import React from 'react';
 import Titles from './components/Titles';
 import Form from './components/Form';
 import Weather from './components/Weather';
+import Game from './components/Game';
 import Keyboard from './components/Keyboard';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -70,10 +71,25 @@ class App extends React.Component {
 		// this is shitty man's code, figure this out: document.getElementById("weather-results").style.display = 'block';
 
 	}
-	
 
   render() {
-    return(
+
+	return(
+		<div className="wrapper">
+			<div className="main">
+				<div className="container">
+					<div className="row">
+						<Game />
+					</div>
+				</div>
+			</div>
+		</div>
+	)
+
+
+
+
+    /*return(
       <div>
 		<div className="wrapper">
 			<div className="main">
@@ -103,7 +119,7 @@ class App extends React.Component {
 			</div>
 		</div>
       </div>
-    );
+    );*/
   }
 }
 

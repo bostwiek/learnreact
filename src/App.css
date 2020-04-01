@@ -5,16 +5,27 @@ body {
   text-align: center;
 }
 
+.Game {
+	width: 100vw;
+	height: 80vh;
+	margin: auto;
+}
+.game-top, .game-mid, .game-btm {
+	display: block;
+	width: 100%;
+	height: 33%;
+	border: 1px solid rgba(255,255,255,0.2);
+}
+
 .wrapper {
 	width: 80vw;
 	min-width: 280px;
 	padding: 20px;
-	margin: 30px auto 0;
+	margin: 60px auto 0;
 	border-radius: 50px;
 	box-shadow:  inset 16px 16px 20px rgba(255,255,255,.03), 
 	inset -16px -16px 20px rgba(0,0,0,.1);
 }
-
 .title-container, .form-container {
 	display: flex;
 	min-height: 80vh;
@@ -44,7 +55,6 @@ body {
 	margin: 0 auto;
 	text-align: center;
 }
-
 .location-label span {
 	min-width: 92px;
 	font-weight: bold;
