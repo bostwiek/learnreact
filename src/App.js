@@ -2,6 +2,7 @@ import React from 'react';
 import Titles from './components/Titles';
 import Form from './components/Form';
 import Weather from './components/Weather';
+import Keyboard from './components/Keyboard';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -86,6 +87,9 @@ class App extends React.Component {
 						</div>
 					</div>
 					<div className="row">	
+
+						<Keyboard />
+
 						<Weather
 							temperature={this.state.temperature}
 							city={this.state.city}
