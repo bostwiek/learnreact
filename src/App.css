@@ -5,39 +5,38 @@ body {
   text-align: center;
 }
 
-.GameBoxes-container {
-	width: 100%;
-	height: 80vh;
-	margin: auto;
-}
-.game-box {
-	display: block;
-	width: 100px;
-	height: 33%;
-	background-color: black;
-	border: 1px solid rgba(255,255,255,0.2);
-	margin: 0 auto;
-}
-
 .wrapper {
 	width: 80vw;
 	min-width: 280px;
 	padding: 20px;
 	margin: 60px auto 0;
-	border-radius: 50px;
-	box-shadow:  inset 16px 16px 20px rgba(255,255,255,.03), 
-	inset -16px -16px 20px rgba(0,0,0,.1);
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.2);
 }
+
+.GameBoxes-container {
+	width: 100%;
+	height: 80vh;
+	margin: 30px auto;
+}
+.game-box {
+	display: inline-block;
+	width: 100px;
+	height: 130px;
+	background-color: black;
+	border: 10px solid #666;
+	margin: 0 auto;
+
+	transition: all 0.1s ease-in-out;
+}
+
+/* ------------------ */
+
 .title-container, .form-container {
 	display: flex;
 	min-height: 80vh;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
-}
-.title-container {
-}
-.form-container {
 }
 .weather-container {
 	margin: 0 auto;

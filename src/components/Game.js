@@ -5,11 +5,33 @@ import GameBoxes from './GameBoxes';
 
 class Game extends React.Component {
 
+	state = {
+		num: 0
+	}
+
 	render() {
+
+		const submit = () => {
+			this.setState((num) => {
+				return {num: document.getElementById('boxes').value}
+			})
+		}
 
 		return(
 			<div className="Game" id="Game">
-				<GameBoxes />
+				<div className="form-row align-items-center">
+					<div className="col-2"></div>
+					<div className="col-4">
+						<input type="text" id="boxes" className="form-control form-control-lg" placeholder="How many boxes:" />
+					</div>
+					<div className="col-4">
+						<button className="btn btn-primary btn-lg" onClick={submit}>Submit</button>
+					</div>
+					<div className="col-2"></div>
+				</div>
+				
+				<GameBoxes boxes={this.state.num} />
+
 			</div>
 		)
 	}
