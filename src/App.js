@@ -1,14 +1,14 @@
 import React from 'react';
-import Titles from './components/Titles';
-import Form from './components/Form';
-import Weather from './components/Weather';
 import Game from './components/Game';
-import Keyboard from './components/Keyboard';
-
+import Clock from './components/Clock';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 const API_KEY = '39b62e27e68f14e8459378c86e2950a2';
+
+// left off here: https://reactjs.org/docs/handling-events.html
+
+
 
 //https://api.openweathermap.org/data/2.5/weather?q=Denver,CO*&appid=39b62e27e68f14e8459378c86e2950a2
 
@@ -76,13 +76,8 @@ class App extends React.Component {
 
 	return(
 		<div className="wrapper">
-			<div className="main">
-				<div className="container">
-					<div className="row">
-						<Game />
-					</div>
-				</div>
-			</div>
+			<Clock />
+			<Game />
 		</div>
 	)
 

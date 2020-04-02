@@ -1,36 +1,18 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import GameBoxes from './GameBoxes';
+
+// note: states handle dynamic variables, props are static and passed to children (though there is workarounds for updating props, states should be used when its expected to change)
 
 class Game extends React.Component {
 
-    state = {
-        players: 0
-    }
+	render() {
 
-    render() {
-
-        function test() { alert("test"); }
-
-        const lightbox = () => {
-            // exploring the deepness of the "this" keyword
-            console.log(this);
-        }
-
-        return(
-            <div className="Game" id="Game">
-                <div className="game-top" onClick={lightbox}>
-                    
-                </div>
-                <div className="game-mid">
-                    
-                </div>
-                <div className="game-btm">
-                    
-                </div>
-            </div>
-        )
-    }
-
+		return(
+			<div className="Game" id="Game">
+				<GameBoxes />
+			</div>
+		)
+	}
 }
 
 export default Game;

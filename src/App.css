@@ -5,16 +5,18 @@ body {
   text-align: center;
 }
 
-.Game {
-	width: 100vw;
+.GameBoxes-container {
+	width: 100%;
 	height: 80vh;
 	margin: auto;
 }
-.game-top, .game-mid, .game-btm {
+.game-box {
 	display: block;
-	width: 100%;
+	width: 100px;
 	height: 33%;
+	background-color: black;
 	border: 1px solid rgba(255,255,255,0.2);
+	margin: 0 auto;
 }
 
 .wrapper {
