@@ -35,12 +35,9 @@ textarea:focus, input:focus {
 	margin-bottom: 15px;
 }
 .login-container {
-	position: absolute;
-	top: 50%;
-	left: 75px;
 	width: 85%;
 	max-width: 320px;
-	margin: -280px auto 0;
+	margin: 60px auto 0;
 }
 .header-container {
 	padding: 35px 0 45px;
@@ -135,15 +132,10 @@ button.btn-login {
 	height: 100%;
 }
 
-
 /* Viewports */
 
 @media (max-width: 574px) {
 	.col-right {
 		display: none !important;
-	}
-	.login-container {
-		position: static;
-		margin-top: 80px;
 	}
 }
