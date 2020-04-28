@@ -1,48 +1,59 @@
-import React from 'react';
-import Logo from './components/Logo';
-import LoginForm from './components/LoginForm';
-import Illustration from './images/a.jpg';
+import React from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
+import LoginPage from './components/LoginPage'
+import SignupPage from './components/SignupPage'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './Main.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './Animations.css'
+
+import Illustration from './images/a.jpg'
 
 class Main extends React.Component {
+
+	constructor() {
+		super();
+
+		this.state = {
+			page: 'login',
+			showPage: true
+		}
+
+		this.pageChange = this.pageChange.bind(this);
+	}
+
+	pageChange() {
+		(this.state.page == 'login') ? 
+		this.setState({ page: 'signup' }) :
+		this.setState({ page: 'login'})
+	}
   
 
   render() {
 
-    const backgroundStyle = {
-      backgroundImage: `url(${Illustration})`,
-      backgroundPosition: 'center right',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '70% auto'
-    }
-
+		const backgroundImg = {
+      backgroundImage: `url(${Illustration})`
+		}
  
     return(
-      <div className="container-fluid">
-        <div className="row">
+			<>
 
-          <div className="col-12 col-sm-7 col-md-6 col-lg-5 col-left">
-            <div className="login-container">
+				<CSSTransition
+					in={true}
+					appear={true}
+					timeout={1000}
+					classNames="fade"
+				>
 
-              <Logo />
-              <LoginForm />
+					{/* Checks if state.page is 'login', displays <LoginPage /> if so, otherwise <SignupPage /> */}
+					{(this.state.page == 'login') ? <LoginPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} /> : <SignupPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} /> }
 
-            </div>
-          </div>
-
-          <div className="col-sm-5 col-md-6 col-lg-7 col-right">
-            <div className="illustration" alt="Illustration" style={backgroundStyle}>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    )
-
+				</CSSTransition>		
+		
+			</>
+		)
   }
-
 }
 
 export default Main;

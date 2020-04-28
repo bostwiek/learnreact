@@ -1,8 +1,9 @@
-import React from 'react';
-import MailIcon from '../images/mail1.png';
-import LockIcon from '../images/lock1.png';
+import React from 'react'
+import MailIcon from '../images/mail1.png'
+import LockIcon from '../images/lock1.png'
 
 class LoginForm extends React.Component {
+
 	render() {
 
 		return(
@@ -13,26 +14,32 @@ class LoginForm extends React.Component {
 				</div>
 
 				<div className="input-height">
+
 					<div className="form-group">
 						<div className="input-wrapper">
-							{/* <label forHtml="email">Email Address</label> */}
-							<input type="email" className="form-control username" id="email" placeholder="Username or email" autocomplete="disabled" />
+							<input type="email" className="form-control username" id="email" placeholder="Username or email" autocomplete="off" />
 							<img className="login-icon mail-icon" src={MailIcon} />
 						</div>
-						
 					</div>
 
 					<div className="form-group">
 						<div className="input-wrapper">
-							{/* <label forHtml="password">Password</label> */}
 							<input type="password" className="form-control password" placeholder="Password" />
 							<img className="login-icon lock-icon" src={LockIcon} />
 						</div>					
 					</div>
 
+					<div className="form-group">
+						<div className="input-wrapper sub-text">
+							<input type="checkbox" className="checkbox" id="rememberLogin" name="rememberLogin" value="true" />
+							<label htmlFor="rememberLogin">Remember Login?</label>
+						</div>
+					</div>
+
 					<div className="sub-text forgot-pw">
 						<a href="#">Forgot Password?</a>
 					</div>
+
 				</div>
 
 				<div>
@@ -40,7 +47,7 @@ class LoginForm extends React.Component {
 				</div>
 
 				<div className="sub-text create-account">
-					<a href="#"	>Don't have an account?  Create an account</a>
+					<a onClick={this.props.pageChange}>Don't have an account?  Create an account</a>
 				</div>
 
 			</div>

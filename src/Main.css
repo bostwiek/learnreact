@@ -1,14 +1,9 @@
 /* DOM */
 
 body {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100%;
-  color: white;
   text-align: center;
-}
-
-textarea:focus, input:focus {
-	outline: none !important;
 }
 
 /* Containers and Wrappers */
@@ -34,7 +29,7 @@ textarea:focus, input:focus {
 	color: #7c1af0;
 	margin-bottom: 15px;
 }
-.login-container {
+.login-container, .signup-container {
 	width: 85%;
 	max-width: 320px;
 	margin: 60px auto 0;
@@ -54,7 +49,7 @@ textarea:focus, input:focus {
 	font-weight: bold;
 	color: #7c1af0;
 }
-.form-container input {
+.login-container input.username, .login-container input.password {
 	display: block;
 	width: 100%;
 	font-size: 1.2em;
@@ -68,16 +63,16 @@ textarea:focus, input:focus {
 }
 
 .form-control {
-	color: #7c1af0 !important;
-	border: none !important;
-	border-bottom: 1px solid #e9d7ff !important;
+	color: #7c1af0;
+	border: none;
+	border-bottom: 1px solid #e9d7ff;
 }
 label {
 	margin-bottom: 5px !important;
 }
 
 .input-height {
-	height: 200px;
+	padding-bottom: 30px;
 }
 .input-wrapper {
 	position: relative;
@@ -85,19 +80,20 @@ label {
 
 .sub-text {
 	width: 100%;
-	text-align: right;
+	font-size: 0.8em;
+	color: #7c1af0;
+	padding-left: 5px;
 }
 .sub-text a {
-	color: #7c1af0
-}
-.forgot-pw {
-	text-align: right;
 	font-weight: bold;
-	font-size: 0.8em;
+	color: #7c1af0
 }
 .create-account {
 	text-align: left;
 	margin: 20px 0;
+}
+.checkbox {
+	margin-right: 6px;
 }
 
 .login-icon {
@@ -112,7 +108,7 @@ label {
 	width: 18px;
 }
 
-button.btn-login {
+button.btn-login, button.btn-register {
 	background-color: #7c1af0;
 	color: #ffffff;
 	width: 100%;
@@ -130,6 +126,9 @@ button.btn-login {
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-size: 70% auto;
 }
 
 /* Viewports */
