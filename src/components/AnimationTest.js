@@ -9,9 +9,11 @@ class AnimationTest extends React.Component {
 		this.state = {
 			id: uuid(),
 			name: 'XD',
-			count: 0
+			count: 0,
+			bool: true
 		}
 		this.countUp = this.countUp.bind(this);
+		this.flipBool = this.flipBool.bind(this);
 	}
 
 	countUp() {
@@ -20,44 +22,42 @@ class AnimationTest extends React.Component {
 		this.setState({ count: currentCount })
 	}
 
+	flipBool() {
+		let currentBool = this.state.bool;
+		currentBool = !currentBool;
+		this.setState({bool: currentBool})
+	}
+
 
 	render() {
 
 		const { appearHome } = this.state;
 
+
 		return (
 			<>
-
 				<div className="animation-container">
 
 
-
-
 					<Transition
-						in={true}
-						timeout={4000}
+						in={this.state.bool}
+						timeout={1000}
 						appear
 					>
-
-
 						{(status) => (
 
-							<div className={`box box-${status}`}>
+							<div className={`test test-${status}`}>
 								react-transition-group status: {status}
 							</div>
 
 						)}
-
-
-
 					</Transition>
-
-
-
 
 					<div className="count-container">
 						{this.state.count}
 					</div>
+
+					<button onClick={this.flipBool}>Boop</button>
 
 				</div>
 

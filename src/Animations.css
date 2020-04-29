@@ -76,8 +76,17 @@
 }
 .box-entering {
 	animation-name: box-animation;
-	animation-duration: 4s;
+	animation-duration: 1s;
 }
+
+.box-exited {
+	color: red;
+}
+.box-exiting {
+	animation-name: box-animation;
+	animation-duration: 1s;
+}
+
 
 @keyframes box-animation {
 	0% { color: orange; left: 0px; top: 0px;}
@@ -85,4 +94,37 @@
 	50% { color: green; left: 0px; top: 0px;}
 	75% { color: blue; left: 0px; top: 0px;}
 	100% { color: purple; left: 0px; top: 0px;}
+}
+
+
+
+
+.test {
+	position: relative;
+}
+.test-entered {
+	opacity: 1;
+	transition: opacity 1000ms ease-in-out;
+}
+.test-entering {
+	opacity: 1;
+	transition: opacity 1000ms ease-in-out;
+}
+
+.test-exited {
+	opacity: 0;
+	transition: opacity 1000ms ease-in-out;
+}
+.test-exiting {
+	opacity: 0;
+	transition: opacity 1000ms ease-in-out;
+}
+
+
+@keyframes test-animation {
+	0% {}
+	25% {}
+	50% {}
+	75% {}
+	100% {}
 }
