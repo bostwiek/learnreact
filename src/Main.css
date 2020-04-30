@@ -109,8 +109,6 @@ label {
 }
 
 button.btn-login, button.btn-register {
-	background-color: #7c1af0;
-	color: #ffffff;
 	width: 100%;
 	font-size: 1.3em;
 	line-height: 30px;

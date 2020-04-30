@@ -10,7 +10,8 @@ class AnimationTest extends React.Component {
 			id: uuid(),
 			name: 'XD',
 			count: 0,
-			bool: true
+			bool: true,
+			sidebar: false
 		}
 		this.countUp = this.countUp.bind(this);
 		this.flipBool = this.flipBool.bind(this);
@@ -60,6 +61,34 @@ class AnimationTest extends React.Component {
 					<button onClick={this.flipBool}>Boop</button>
 
 				</div>
+
+
+				<CSSTransition
+					in={this.state.sidebar}
+					classNames="sidebar"
+				>
+					<div className="sidebar">
+						<ul>
+							<li><a onClick={()=>{
+								let flipBool = !this.state.bool;
+								this.setState({bool: flipBool})
+							}}>Home</a></li>
+							<li><a>Store</a></li>
+							<li><a>About</a></li>
+							<li><a>Contact</a></li>
+						</ul>
+					</div>
+				</CSSTransition>
+				
+				<div className="button-container">
+					<button onClick={()=>{
+							let sidebarFlip = !this.state.sidebar;
+							this.setState({sidebar: sidebarFlip})
+						}}>=</button>
+				</div>
+
+
+							
 
 
 			</>

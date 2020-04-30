@@ -41,13 +41,16 @@ class Main extends React.Component {
 
 				<CSSTransition
 					in={true}
-					appear={true}
+					appear={true} 
 					timeout={1000}
 					classNames="fade"
 				>
 
 					{/* Checks if state.page is 'login', displays <LoginPage /> if so, otherwise <SignupPage /> */}
-					{(this.state.page == 'login') ? <LoginPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} /> : <SignupPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} /> }
+					{(this.state.page == 'login') ?
+						<LoginPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} />:
+						<SignupPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} />
+					}
 
 				</CSSTransition>		
 		

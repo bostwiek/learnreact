@@ -5,6 +5,20 @@ import LoginForm from './LoginForm'
 
 class LoginPage extends React.Component {
 
+	// our form logic will look like this
+		// check if the form has been filled out
+			// if missing fields, gray out / append class disabled to btn-login
+		// if form has been filled out
+			// if email field does not qualify as email
+				// show submit-bad class
+				// append disabled to btn-login
+			// if password too short
+				// same as above
+			// if form is correct
+				// show submit-good class on button
+					// load "login" popup (eventually new page)
+
+
 	render() {
 
 		return(
