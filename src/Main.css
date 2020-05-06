@@ -1,9 +1,21 @@
 /* DOM */
 
+/*
+main purple: #7c1af0
+dark purple: #5c0abd
+*/
+
 body {
   background-color: #ffffff;
   min-height: 100%;
   text-align: center;
+}
+a {
+	cursor: pointer !important;
+	color: #7c1af0;
+}
+a:hover {
+	color: #5c0abd;
 }
 
 /* Containers and Wrappers */
@@ -95,6 +107,9 @@ label {
 .checkbox {
 	margin-right: 6px;
 }
+.no-select {
+	user-select: none;
+}
 
 .login-icon {
 	position: absolute;
@@ -108,7 +123,7 @@ label {
 	width: 18px;
 }
 
-button.btn-login, button.btn-register {
+button.btn-login, button.btn-signup {
 	width: 100%;
 	font-size: 1.3em;
 	line-height: 30px;
@@ -118,7 +133,9 @@ button.btn-login, button.btn-register {
 	border-color: #5c0abd;
 	opacity: 1;
 }
-button.btn-login:hover, button.btn-register:hover, button.btn-login:focus, button.btn-register:focus {
+button.btn-login:hover, button.btn-signup:hover,
+button.btn-login:focus, button.btn-signup:focus,
+button.btn-login:active, button.btn-signup:active {
 	background-color: #5c0abd;
 }
 .login-container button.btn-disabled, .signup-container button.btn-disabled {
@@ -126,6 +143,15 @@ button.btn-login:hover, button.btn-register:hover, button.btn-login:focus, butto
 	background-color: #ffffff;
 	border-color: #7c1af0;
 	opacity: 0.5;
+}
+#remember-label {
+	cursor: pointer;
+}
+
+/* Dashboard */
+
+.height-container {
+	height: 50px;
 }
 
 /* Background */

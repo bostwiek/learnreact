@@ -11,15 +11,18 @@ class LoginForm extends React.Component {
 		this.state = {
 			btn: true,
 			email: '',
-			password: false
+			password: false,
+			rememberLogin: false
 		}
 	}
 
 	render() {
 
 		const btnClicked = () => {
+
 			let emailVerify = false;
 			let passwordVerify = false;
+
 			if (this.state.email == '') {
 				document.getElementById('email').style.borderBottomColor = 'red';
 			} else {
@@ -31,7 +34,7 @@ class LoginForm extends React.Component {
 				passwordVerify = true;
 			}
 			if (emailVerify == true && passwordVerify == true) {
-				// change main's state to page: 'dashboard'
+				this.props.pageChange('dashboard');
 			}
 			
 		}
@@ -42,9 +45,11 @@ class LoginForm extends React.Component {
 		}
 
 		const checkEmail = e => {
+
 			let typedText = e.target.value;
 			let borderColor = '';
 			let btnLogin = document.getElementById('btn-login');
+
 			if(typedText.includes('@')) {
 				borderColor = 'green';
 				this.setState({email: typedText})
@@ -66,9 +71,11 @@ class LoginForm extends React.Component {
 		}
 
 		const checkPassword = e => {
+
 			let typedText = e.target.value;
 			let borderColor = '';
 			let btnLogin = document.getElementById('btn-login');
+
 			if(typedText.length > 7) {
 				borderColor = 'green';
 				this.setState({password: true});
@@ -96,8 +103,12 @@ class LoginForm extends React.Component {
 
 
 
+		/* ---------- */
+
+		
 		
 		return(
+
 			<div className="form-container">
 
 				<div className="header-container">
@@ -123,12 +134,12 @@ class LoginForm extends React.Component {
 					<div className="form-group">
 						<div className="input-wrapper sub-text">
 							<input type="checkbox" className="checkbox" id="rememberLogin" name="rememberLogin" value="true" />
-							<label htmlFor="rememberLogin">Remember Login?</label>
+							<label htmlFor="rememberLogin" id="remember-label" class="no-select">Remember Login?</label>
 						</div>
 					</div>
 
 					<div className="sub-text forgot-pw">
-						<a href="#">Forgot Password?</a>
+						<a href="#" onClick={() => {alert('No you didn\'t, you liar')}}>Forgot Password?</a>
 					</div>
 
 				</div>
@@ -149,6 +160,7 @@ class LoginForm extends React.Component {
 				</div>
 
 			</div>
+
 		)
 	}
 }
