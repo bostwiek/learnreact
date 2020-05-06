@@ -23,10 +23,8 @@ class Main extends React.Component {
 		this.pageChange = this.pageChange.bind(this);
 	}
 
-	pageChange() {
-		(this.state.page == 'login') ? 
-		this.setState({ page: 'signup' }) :
-		this.setState({ page: 'login'})
+	pageChange(x) {
+		this.setState({page: x});
 	}
   
 
@@ -34,6 +32,20 @@ class Main extends React.Component {
 
 		const backgroundImg = {
       backgroundImage: `url(${Illustration})`
+		}
+
+		const loadPage = () => {
+			switch(this.state.page) {
+				case 'login':
+					return <LoginPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} />
+					break;
+				case 'signup':
+					return <SignupPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} />
+					break;
+				case 'dashboard':
+					alert('dashboard page goes here')	
+					break;
+			}
 		}
  
     return(
@@ -46,11 +58,7 @@ class Main extends React.Component {
 					classNames="fade"
 				>
 
-					{/* Checks if state.page is 'login', displays <LoginPage /> if so, otherwise <SignupPage /> */}
-					{(this.state.page == 'login') ?
-						<LoginPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} />:
-						<SignupPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} />
-					}
+					{loadPage}
 
 				</CSSTransition>		
 		

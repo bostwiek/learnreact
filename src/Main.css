@@ -49,7 +49,7 @@ body {
 	font-weight: bold;
 	color: #7c1af0;
 }
-.login-container input.username, .login-container input.password {
+.login-container input.email, .login-container input.password {
 	display: block;
 	width: 100%;
 	font-size: 1.2em;
@@ -88,7 +88,7 @@ label {
 	font-weight: bold;
 	color: #7c1af0
 }
-.create-account {
+.create-account, .login-account {
 	text-align: left;
 	margin: 20px 0;
 }
@@ -113,6 +113,19 @@ button.btn-login, button.btn-register {
 	font-size: 1.3em;
 	line-height: 30px;
 	padding: 10px 0 12px;
+	color: #ffffff;
+	background-color: #7c1af0;
+	border-color: #5c0abd;
+	opacity: 1;
+}
+button.btn-login:hover, button.btn-register:hover, button.btn-login:focus, button.btn-register:focus {
+	background-color: #5c0abd;
+}
+.login-container button.btn-disabled, .signup-container button.btn-disabled {
+	color: #7c1af0;
+	background-color: #ffffff;
+	border-color: #7c1af0;
+	opacity: 0.5;
 }
 
 /* Background */

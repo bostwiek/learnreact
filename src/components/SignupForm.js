@@ -4,6 +4,10 @@ import Logo from './Logo'
 class SignupForm extends React.Component {
 	render() {
 
+		const pageChange = (x) => {
+			this.props.pageChange(x)
+		}
+
 		return(
       <div className="form-container">
 
@@ -12,13 +16,6 @@ class SignupForm extends React.Component {
 				</div>
 
 				<div className="input-height">
-					
-					<div className="form-group">
-						<div className="input-wrapper">
-							<label htmlFor="username">Username: </label>
-							<input type="text" className="form-control username" id="username" placeholder="Username" autocomplete="off" />
-						</div>
-					</div>
 					
 					<div className="form-group">
 						<div className="input-wrapper">
@@ -44,14 +41,18 @@ class SignupForm extends React.Component {
 					<div className="form-group">
 						<div className="input-wrapper">
 							<input type="checkbox" className="checkbox terms" name="terms" id="terms" />
-							<label htmlFor="terms">I agree to the <a href="#">Terms &amp; Conditions</a></label>
+							<label htmlFor="terms">I agree to the <a href="#" onClick={() => {alert('I don\'t believe in terms &amp; conditions')}}>Terms &amp; Conditions</a></label>
 						</div>
 					</div>
 
 
 				</div>
 				<div>
-					<button className="btn btn-primary btn-register">Sign up</button>
+					<button className="btn btn-primary btn-register btn-disabled">Sign up</button>
+				</div>
+
+				<div className="sub-text login-account">
+					<a onClick={() => {pageChange('login')}}>Already have an account? Log in here</a>
 				</div>
 
 			</div>

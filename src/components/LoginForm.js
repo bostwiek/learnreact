@@ -10,39 +10,93 @@ class LoginForm extends React.Component {
 		super();
 		this.state = {
 			btn: true,
-			username: null,
-			password: null
+			email: '',
+			password: false
 		}
 	}
 
 	render() {
+
+		const btnClicked = () => {
+			let emailVerify = false;
+			let passwordVerify = false;
+			if (this.state.email == '') {
+				document.getElementById('email').style.borderBottomColor = 'red';
+			} else {
+				emailVerify = true;
+			}
+			if (this.state.password == false) {
+				document.getElementById('password').style.borderBottomColor = 'red';				
+			} else {
+				passwordVerify = true;
+			}
+			if (emailVerify == true && passwordVerify == true) {
+				// change main's state to page: 'dashboard'
+			}
+			
+		}
 
 		const flipBtn = () => {
 			let x = !this.state.btn;
 			this.setState({btn: x});
 		}
 
-		const checkUsername = e => {
+		const checkEmail = e => {
 			let typedText = e.target.value;
 			let borderColor = '';
+			let btnLogin = document.getElementById('btn-login');
 			if(typedText.includes('@')) {
 				borderColor = 'green';
+				this.setState({email: typedText})
+				// remove btn-disabled from login-btn if this.state.password == true
+				if (this.state.password == true) {
+					if(btnLogin.classList.contains('btn-disabled')) {
+						btnLogin.classList.remove('btn-disabled');
+					}
+				}
 			} else {
 				borderColor = 'red';
+				this.setState({email: ''})
+				// add btn-disabled if not already appended to login-btn
+				if(!btnLogin.classList.contains('btn-disabled')) {
+					btnLogin.classList.add('btn-disabled')
+				}
 			}
 			document.getElementById('email').style.borderBottomColor = borderColor;
 		}
+
 		const checkPassword = e => {
 			let typedText = e.target.value;
 			let borderColor = '';
+			let btnLogin = document.getElementById('btn-login');
 			if(typedText.length > 7) {
 				borderColor = 'green';
+				this.setState({password: true});
+				// remove btn-disabled from login-btn if this.state.email != ''
+				if (this.state.email != '') {
+					if(btnLogin.classList.contains('btn-disabled')) {
+						btnLogin.classList.remove('btn-disabled')
+					}
+				}
+				
 			} else {
 				borderColor = 'red';
+				this.setState({password: false})
+				// add btn-disabled if not already appended to login-btn
+					if(!btnLogin.classList.contains('btn-disabled')) {
+						btnLogin.classList.add('btn-disabled')
+					}
 			}
 			document.getElementById('password').style.borderBottomColor = borderColor;
 		}
 
+		const pageChange = (x) => {
+			this.props.pageChange(x)
+		}
+
+
+
+		
 		return(
 			<div className="form-container">
 
@@ -54,14 +108,14 @@ class LoginForm extends React.Component {
 
 					<div className="form-group">
 						<div className="input-wrapper">
-							<input type="email" className="form-control username" id="email" placeholder="Username or email" autoComplete="off" onBlur={checkUsername} />
+							<input type="email" className="form-control email" id="email" placeholder="Email address" autoComplete="off" onChange={checkEmail} />
 							<img className="login-icon mail-icon" src={MailIcon} />
 						</div>
 					</div>
 
 					<div className="form-group">
 						<div className="input-wrapper">
-							<input type="password" className="form-control password" id="password" placeholder="Password" onBlur={checkPassword} />
+							<input type="password" className="form-control password" id="password" placeholder="Password" onChange={checkPassword} />
 							<img className="login-icon lock-icon" src={LockIcon} />
 						</div>					
 					</div>
@@ -85,13 +139,13 @@ class LoginForm extends React.Component {
 						classNames="btn-login"
 						timeout={0}
 					>
-						<button className="btn btn-primary btn-login" onClick={flipBtn}>Sign In</button>
+						<button className="btn btn-primary btn-login btn-disabled" id="btn-login" onClick={btnClicked}>Sign In</button>
 
 					</CSSTransition>
 				</div>
 
 				<div className="sub-text create-account">
-					<a onClick={this.props.pageChange}>Don't have an account?  Create an account</a>
+					<a onClick={() => {pageChange('signup')}}>Don't have an account?  Create an account</a>
 				</div>
 
 			</div>

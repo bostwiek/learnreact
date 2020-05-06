@@ -15,7 +15,7 @@ class SignupPage extends React.Component {
 						<div className="signup-container">
 							
 							<Logo />
-							<SignupForm />
+							<SignupForm pageChange={this.props.pageChange} />
 
 						</div>
 					</div>
