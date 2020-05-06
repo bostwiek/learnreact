@@ -39,11 +39,6 @@ class LoginForm extends React.Component {
 			
 		}
 
-		const flipBtn = () => {
-			let x = !this.state.btn;
-			this.setState({btn: x});
-		}
-
 		const checkEmail = e => {
 
 			let typedText = e.target.value;
@@ -84,15 +79,14 @@ class LoginForm extends React.Component {
 					if(btnLogin.classList.contains('btn-disabled')) {
 						btnLogin.classList.remove('btn-disabled')
 					}
-				}
-				
+				}	
 			} else {
 				borderColor = 'red';
 				this.setState({password: false})
 				// add btn-disabled if not already appended to login-btn
-					if(!btnLogin.classList.contains('btn-disabled')) {
-						btnLogin.classList.add('btn-disabled')
-					}
+				if(!btnLogin.classList.contains('btn-disabled')) {
+					btnLogin.classList.add('btn-disabled')
+				}
 			}
 			document.getElementById('password').style.borderBottomColor = borderColor;
 		}

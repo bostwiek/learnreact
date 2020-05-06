@@ -11,6 +11,7 @@ import './Animations.css'
 
 import Illustration from './images/a.jpg'
 
+
 /*
 
 	current TO DO list:
@@ -21,6 +22,7 @@ import Illustration from './images/a.jpg'
 		- clean up code, remove self-comments and add maintenance direction comments
 
 */
+
 
 class Main extends React.Component {
 
@@ -48,20 +50,25 @@ class Main extends React.Component {
 		}
 
 		const loadPage = () => {
+
 			switch(this.state.page) {
+
 				case 'login':
 					return <LoginPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} email={this.state.email} />
 					break;
+
 				case 'signup':
 					return <SignupPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} email={this.state.email} />
 					break;
+
 				case 'dashboard':
 					return <Dashboard backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} email={this.state.email} />
 					break;
-			}
+				}
+
 		}
- 
-    return(
+
+		return(
 			<>
 
 				<CSSTransition

@@ -192,7 +192,7 @@ class SignupForm extends React.Component {
 					<div className="form-group">
 						<div className="input-wrapper">
 							<input type="checkbox" className="checkbox terms" name="terms" id="terms" onChange={termsChecked} />
-							<label htmlFor="terms">I agree to the <a href="#" onClick={() => {alert('I don\'t believe in terms & conditions')}}>Terms &amp; Conditions</a></label>
+							<label htmlFor="terms" className="no-select">I agree to the <a href="#" onClick={() => {alert('I don\'t believe in terms & conditions')}}>Terms &amp; Conditions</a></label>
 						</div>
 					</div>
 
