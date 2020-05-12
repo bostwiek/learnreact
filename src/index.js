@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AnimationTest from './components/AnimationTest'
+import Main from './Main'
 
 ReactDOM.render(
   <React.StrictMode>
-    <AnimationTest />
+    <Main />
   </React.StrictMode>,
   document.getElementById('root')
 );
