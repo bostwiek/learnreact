@@ -1,28 +1,12 @@
 import React from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-import LoginPage from './components/LoginPage'
-import SignupPage from './components/SignupPage'
-import Dashboard from './components/Dashboard'
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Main.css'
+import './Crockpot.css'
 import './Animations.css'
 
 import Illustration from './images/a.jpg'
-
-
-/*
-
-	current TO DO list:
-
-		- Add animations between pages
-		- Push form information to dashboard (maybe go back and tie in registration)
-		- remove alerts, replace with css pseudoclass display toggles, or alert containers
-		- clean up code, remove self-comments and add maintenance direction comments
-
-*/
-
 
 class Main extends React.Component {
 
@@ -30,59 +14,192 @@ class Main extends React.Component {
 		super();
 
 		this.state = {
-			page: 'login',
-			showPage: true,
-			email: ''
+			ingredients: ['-', '-', '-', '-']
 		}
 
-		this.pageChange = this.pageChange.bind(this);
+		this.ingredientClicked = this.ingredientClicked.bind(this)
+		this.submitIngredients = this.submitIngredients.bind(this)
+		this.resetIngredients = this.resetIngredients.bind(this)
+	}  
+	
+
+	ingredientClicked(e) {
+		
+		let ingredients = [...this.state.ingredients];
+		
+		// need to figure out where in the array we left off... .map maybe?
+		let currentIndex = '';
+		if (ingredients[0] == '-') {
+			currentIndex = 0;
+		} else if (ingredients[1] == '-') {
+			currentIndex = 1;
+		} else if (ingredients[2] == '-') {
+			currentIndex = 2;
+		} else if (ingredients[3] == '-') {
+			currentIndex = 3;
+		}
+		let ingredient = {...ingredients[currentIndex]};
+		ingredient = e.target.id;
+		ingredients[currentIndex] = ingredient;
+		this.setState({ingredients})
+
 	}
 
-	pageChange(x) {
-		this.setState({page: x});
+	resetIngredients() {
+		this.setState({
+			ingredients: ['-', '-', '-', '-']
+		})
 	}
-  
+
+	submitIngredients() {
+		let ingredientsArray = this.state.ingredients;
+		if(ingredientsArray.includes('meat')) {
+			alert('contains meat')
+		}
+	}
 
   render() {
 
-		const backgroundImg = {
-      backgroundImage: `url(${Illustration})`
-		}
-
-		const loadPage = () => {
-
-			switch(this.state.page) {
-
-				case 'login':
-					return <LoginPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} email={this.state.email} />
-					break;
-
-				case 'signup':
-					return <SignupPage backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} email={this.state.email} />
-					break;
-
-				case 'dashboard':
-					return <Dashboard backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} email={this.state.email} />
-					break;
-				}
-
-		}
-
 		return(
 			<>
+			
+				<div className="container-fluid">
+					<div className="row">
 
-				<CSSTransition
-					in={true}
-					appear={true} 
-					timeout={1000}
-					classNames="fade"
-				>
+						<div className="col-12">
+				
+							<div className="container">
 
-					{loadPage}
+								<div className="ingredient-container">
+									
+									<div className="ingredient-category" id="meat" onClick={this.ingredientClicked}>
+										Meats
+									</div>
+									
+									<div className="ingredient-category" id="vegetable" onClick={this.ingredientClicked}>
+										Vegetables
+									</div>
+									
+									<div className="ingredient-category" id="fruit" onClick={this.ingredientClicked}>
+										Fruits
+									</div>
+									
+									<div className="ingredient-category" id="fish" onClick={this.ingredientClicked}>
+										Fish
+									</div>
+									
+									<div className="ingredient-category" id="egg" onClick={this.ingredientClicked}>
+										Eggs
+									</div>
+									
+									<div className="ingredient-category" id="sweetener" onClick={this.ingredientClicked}>
+										Sweeteners
+									</div>
+									
+									<div className="ingredient-category" id="monster" onClick={this.ingredientClicked}>
+										Monster Foods
+									</div>
+									
+									<div className="ingredient-category" id="dairy" onClick={this.ingredientClicked}>
+										Dairy
+									</div>
+									
+									<div className="ingredient-category" id="inedible" onClick={this.ingredientClicked}>
+										Inedible
+									</div>
+									
+								</div>
 
-				</CSSTransition>		
-		
+								<div className="output-container">
+
+									<div className="crockpot-slot">
+										{this.state.ingredients[0]}
+									</div>
+									
+									<div className="crockpot-slot">
+										{this.state.ingredients[1]}
+									</div>
+									
+									<div className="crockpot-slot">
+										{this.state.ingredients[2]}
+									</div>
+									
+									<div className="crockpot-slot">
+										{this.state.ingredients[3]}
+									</div>
+
+								</div>
+
+
+
+								<br /><br /><br />
+
+								<button onClick={this.submitIngredients}>Submit</button>
+								
+								<button onClick={this.resetIngredients}>Reset</button>
+								
+								<br /><br /><br />
+
+									Possible recipe outcomes:
+									https://dontstarve.fandom.com/wiki/Crock_Pot
+									Asparagus Soup
+									Bacon and Eggs
+									Banana Pop
+									Butter Muffin
+									California Roll
+									Ceviche
+									Creamy Potato Puree
+									Dragonpie
+									Fancy Spiralled Tubers
+									Fish Tacos
+									Fish Sticks
+									Fist Full of Jam
+									Flower Salad
+									Froggie Bunwich
+									Fruit Medley
+									Guacamole
+									Honey Ham
+									Honey Nuggets
+									Ice Creamy
+									Jelly Beans
+									Kabobs
+									Lobster Bisque
+									Lobster Dinner
+									Mandrake Soup
+									Meatballs
+										0.5x meat, no inedibles
+									Meaty Stew
+										3.0x meat, no inedibles, mole, eggs, mandrake
+									Melonsicle
+									Monster Lasagna
+										2.0x Monster/Durian, no inedibles
+									Pierogi
+									Powdercake
+									Pumpkin Cookie
+									Ratatouille
+									Salsa Fresca
+									Seafood Gumbo
+									Spicy Chili
+									Stuffed Eggplant
+									Stuffed Pepper Poppers
+									Surf n' Turf
+									Taffy
+									Trail Mix
+									Turkey Dinner
+									Unagi
+									Vegetable Stinger
+									Waffles
+									Wet Goop
+
+
+							</div>
+						
+						</div>
+					
+					</div>
+				</div>
 			</>
+
 		)
   }
 }
