@@ -1,50 +1,30 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { Container, Button, Alert } from 'react-bootstrap';
-import { CSSTransition } from 'react-transition-group';
+import React, { useEffect } from 'react'
+import ReactDOM from 'react-dom'
+import Aos from 'aos'
 
-import './styles.css';
+import 'aos/dist/aos.css'
+import './box.css';
 
 function Example() {
-  const [showButton, setShowButton] = useState(true);
-  const [showMessage, setShowMessage] = useState(false);
+
+	useEffect(() => {
+		Aos.init({ duration: 500 })
+	}, []);
+
   return (
-    <Container style={{ paddingTop: '2rem' }}>
-      {showButton && (
-        <Button
-          onClick={() => setShowMessage(true)}
-          size="lg"
-        >
-          Show Message
-        </Button>
-      )}
-      <CSSTransition
-        in={showMessage}
-        timeout={300}
-        classNames="alert"
-        unmountOnExit
-        onEnter={() => setShowButton(false)}
-        onExited={() => setShowButton(true)}
-      >
-        <Alert
-          variant="primary"
-          dismissible
-          onClose={() => setShowMessage(false)}
-        >
-          <Alert.Heading>
-            Animated alert message
-          </Alert.Heading>
-          <p>
-            This alert message is being transitioned in and
-            out of the DOM.
-          </p>
-          <Button onClick={() => setShowMessage(false)}>
-            Close
-          </Button>
-        </Alert>
-      </CSSTransition>
-    </Container>
-  );
+		<>
+
+			<h1>Animate on scroll tests!</h1>
+
+			<div data-aos="fade-left" className="box"></div>
+			<div data-aos="fade-right" className="box"></div>
+			<div data-aos="fade-left" className="box"></div>
+			<div data-aos="fade-right" className="box"></div>
+			<div data-aos="fade-left" className="box"></div>
+
+
+		</>
+	);
 }
 
 ReactDOM.render(
