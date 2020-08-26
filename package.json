@@ -22,8 +22,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node-env-run server --exec nodemon | pino-colada",
-		"dev": "run-p server start",
-		"scss": "node-sass --watch src/scss -o src/css"
+    "dev": "run-p server start",
+    "scss": "node-sass --watch src/scss -o src/css"
   },
   "eslintConfig": {
     "extends": "react-app"

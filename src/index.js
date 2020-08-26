@@ -42,8 +42,7 @@ function Example() {
 
 					data-aos-offset="300"
 
-					data-aos-delay="300"
-
+					data-aos-delay="300" 
 
 				*/}
 
