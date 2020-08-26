@@ -1,0 +1,26 @@
+$color-primary: crimson;
+$color-secondary: skyblue;
+
+body {
+	font-family: Monospace;
+	color: $color-primary;
+	background: $color-secondary
+}
+
+.box {
+	width: 80%;
+	height: 400px;
+	background: rgba(0,0,0,0.2);
+	border-radius: 10px;
+	margin: 30px auto;
+	text-align: center;
+	font-size: 2em;
+}
+
+@mixin button-base() {
+	display: inline-flex;
+	border: 1px solid #f0f;
+	&:hover {
+		cursor: pointer;
+	}
+}
