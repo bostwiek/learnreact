@@ -1,8 +1,38 @@
-$color-primary: crimson;
-$color-secondary: skyblue;
+@import 'partial';
+// partials created with _ as first character
+ 
+@import 'variables';
+// variables stored in variables partial
+
+// maps exist in scss
+$map-example: (
+	"key": "value",
+	"other key": "other value"
+);
+
+// functions (to not type map-get(key, value) everytime)
+@function weight($weight-name) {
+	@return map-get($font-weight, $weight-name);
+}
+
+// media query - can add to each element (adding to .main) as mixin
+@mixin mobile {
+	@media (max-width: $mobile) {
+		// content passed when mixin called
+		@content;
+	}
+}
+
+$font-weight: (
+	"light": 200,
+	"normal": 400,
+	"bold": 700
+);
 
 body {
 	font-family: Monospace;
+	// calling maps, pass in key value pair
+	font-weight: weight(normal);
 	color: $color-primary;
 	background: $color-secondary
 }
@@ -20,6 +50,29 @@ body {
 	}
 }
 
+// nesting best practices...
+.main {
+	display: flex;
+	// this will only target .main__paragraph
+	&__paragraph {
+		font-weight: map-get($font-weight, bold);
+	}
+	// if we want .main .main__paragraph, we need to...
+	#{&}__paragraph {
+		font-weight: map-get($font-weight, bold);
+		&:hover {
+			color: pink;
+		}
+	}
+	@include mobile {
+		flex-direction: column;
+	}
+}
+
+// mixins similar to functions,
+	// functions return values
+	// mixins return styles
+		// (can also pass args into mixins)
 @mixin button-base() {
 	display: inline-flex;
 	border: 1px solid #f0f;
@@ -27,3 +80,26 @@ body {
 		cursor: pointer;
 	}
 }
+
+.test {
+	@include button-base;
+}
+
+// can use mixins for themes as well
+@mixin theme($light-theme: true) {
+	// leaving default value as true as fallback
+	@if $light-theme {
+		background: lighten($color-primary, 100%);
+		color: darken($color-secondary, 100%);
+	}
+}
+
+.light {
+	@include theme($light-theme: true);
+		// this will pull all the info from the @if if set to true
+}
+
+// when you want element to inherit all styles from another element
+	// @extend .class_name;
+
+// alt shift down COPIES SELECTED TEXT BELOW
